@@ -9,7 +9,7 @@ export const GlobalStyles = createGlobalStyle`
 }
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: ${({ theme }) => theme.blue};
+    background-color: ${({ theme }) => theme.white};
     color: #000;
     -webkit-font-smoothing: antialiased;
 }
