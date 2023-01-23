@@ -11,13 +11,6 @@ interface Pokemon {
   id: number
   name: string
   url: string
-  sprites: {
-    other: {
-      'official-artwork': {
-        front_default: string
-      }
-    }
-  }
 }
 
 interface PokeProviderProps {
@@ -34,6 +27,7 @@ export const PokeContext = createContext({} as PokeContextModel)
 export const PokeProvider = ({ children }: PokeProviderProps) => {
   const [apiResponse, setApiResponse] = useState<Pokemon[]>([])
 
+  // retrieve the basic pokemon data in the general list
   useEffect(() => {
     fetch('https://pokeapi.co/api/v2/pokemon/')
       .then((r) => r.json())
@@ -42,6 +36,7 @@ export const PokeProvider = ({ children }: PokeProviderProps) => {
       })
   }, [])
 
+  // retrieve the pokemon picture based on its id, which is presented in the general pokemon list
   const getPokePicture = useCallback((id: string) => {
     console.log(id)
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`
