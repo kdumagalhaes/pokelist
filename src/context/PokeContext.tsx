@@ -20,31 +20,53 @@ interface PokeProviderProps {
 interface PokeContextModel {
   apiResponse: Pokemon[]
   getPokePicture: (id: string) => string
+  nextPageUrl: string
+  prevPageUrl: string
+  goToNextPage: () => void
+  goToPrevPage: () => void
 }
 
 export const PokeContext = createContext({} as PokeContextModel)
 
 export const PokeProvider = ({ children }: PokeProviderProps) => {
   const [apiResponse, setApiResponse] = useState<Pokemon[]>([])
+  const [currentPage, setCurrentPage] = useState(
+    'https://pokeapi.co/api/v2/pokemon',
+  )
+  const [nextPageUrl, setNextPageUrl] = useState('')
+  const [prevPageUrl, setPrevPageUrl] = useState('')
 
-  // retrieve the basic pokemon data in the general list
+  // retrieve the basic pokemon data in the general list and pagination url
   useEffect(() => {
-    fetch('https://pokeapi.co/api/v2/pokemon/')
-      .then((r) => r.json())
+    fetch(currentPage)
+      .then((res) => res.json())
       .then((json) => {
         setApiResponse(json.results)
+        setNextPageUrl(json.next)
+        setPrevPageUrl(json.previous)
       })
-  }, [])
+  }, [currentPage])
+
+  const goToNextPage = () => {
+    setCurrentPage(nextPageUrl)
+  }
+
+  const goToPrevPage = () => {
+    setCurrentPage(prevPageUrl)
+  }
 
   // retrieve the pokemon picture based on its id, which is presented in the general pokemon list
   const getPokePicture = useCallback((id: string) => {
-    console.log(id)
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`
   }, [])
 
   const value = {
     apiResponse,
     getPokePicture,
+    nextPageUrl,
+    prevPageUrl,
+    goToNextPage,
+    goToPrevPage,
   }
 
   return <PokeContext.Provider value={value}>{children}</PokeContext.Provider>

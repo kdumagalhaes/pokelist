@@ -5,7 +5,6 @@ import { Container, Grid } from './styles'
 
 export function PokeContainer() {
   const { apiResponse, getPokePicture } = usePokemon()
-  apiResponse.forEach((res) => console.log(res.url))
   return (
     <Container>
       <Grid>
