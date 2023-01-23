@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyles = createGlobalStyle`
 * {
@@ -9,7 +9,7 @@ export const GlobalStyles = createGlobalStyle`
 }
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #ccc;
+    background-color: ${({ theme }) => theme.blue};
     color: #000;
     -webkit-font-smoothing: antialiased;
 }
