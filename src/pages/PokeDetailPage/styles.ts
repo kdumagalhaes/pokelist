@@ -66,6 +66,10 @@ export const Container = styled.div`
   .list {
     display: flex;
     gap: 7px;
+
+    @media only screen and (max-width: 600px) {
+      flex-direction: column;
+    }
   }
 
   .species-value,
