@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import { DefaultLayout } from '../layouts/DefaultLayout'
 import { Home } from '../pages/Home'
 import { PokeDetailPage } from '../pages/PokeDetailPage/PokeDetailPage'
-import { PokeFavorites } from '../pages/PokeFavorites'
+import { PokeFavorites } from '../pages/PokeFavorites/PokeFavorites'
 
 export function Router() {
   return (

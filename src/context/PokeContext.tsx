@@ -17,6 +17,10 @@ interface PokeProviderProps {
   children: ReactNode
 }
 
+interface FavoritePokemon {
+  id: number
+  name: string
+}
 interface PokeContextModel {
   apiResponse: Pokemon[]
   getPokePicture: (id: string) => string
@@ -24,12 +28,15 @@ interface PokeContextModel {
   prevPageUrl: string
   goToNextPage: () => void
   goToPrevPage: () => void
+  getPokeFavorites: (favoritePokemon: FavoritePokemon) => void
+  favoritesList: FavoritePokemon[]
 }
 
 export const PokeContext = createContext({} as PokeContextModel)
 
 export const PokeProvider = ({ children }: PokeProviderProps) => {
   const [apiResponse, setApiResponse] = useState<Pokemon[]>([])
+  const [favoritesList, setFavoritesList] = useState<FavoritePokemon[]>([])
   const [currentPage, setCurrentPage] = useState(
     'https://pokeapi.co/api/v2/pokemon',
   )
@@ -47,12 +54,31 @@ export const PokeProvider = ({ children }: PokeProviderProps) => {
       })
   }, [currentPage])
 
+  useEffect(() => {
+    const favoritesValue = localStorage.getItem('pokefavs')
+    if (typeof favoritesValue === 'string') {
+      const favorites = JSON.parse(favoritesValue)
+      setFavoritesList(favorites)
+    }
+  }, [])
+
   const goToNextPage = () => {
     setCurrentPage(nextPageUrl)
   }
 
   const goToPrevPage = () => {
     setCurrentPage(prevPageUrl)
+  }
+
+  // retrieve id and name of the pokemon that the user has clicked on the fav button and save the data in localStore
+  const getPokeFavorites = (favoritePokemon: FavoritePokemon) => {
+    // if favoritesList doesn't have a pokemon with the same id, include it in the list
+    if (!favoritesList.find((pokemon) => pokemon.id === favoritePokemon.id)) {
+      localStorage.setItem(
+        'pokefavs',
+        JSON.stringify([...favoritesList, favoritePokemon]),
+      )
+    }
   }
 
   // retrieve the pokemon picture based on its id, which is presented in the general pokemon list
@@ -67,6 +93,8 @@ export const PokeProvider = ({ children }: PokeProviderProps) => {
     prevPageUrl,
     goToNextPage,
     goToPrevPage,
+    getPokeFavorites,
+    favoritesList,
   }
 
   return <PokeContext.Provider value={value}>{children}</PokeContext.Provider>
