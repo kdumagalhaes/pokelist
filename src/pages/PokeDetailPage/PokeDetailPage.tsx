@@ -40,8 +40,6 @@ export function PokeDetailPage() {
     base_experience,
   } = pokemonDetails
 
-  console.log(base_experience)
-
   return (
     <Container>
       <img
