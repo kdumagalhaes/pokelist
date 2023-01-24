@@ -4,6 +4,7 @@ import StarIcon from '../../assets/icons/star-pokemon.webp'
 import { useLocation } from 'react-router-dom'
 import { getPokemonDetails } from '../../utils/pokemonDetails'
 import { useEffect, useState } from 'react'
+import { usePokemon } from '../../context/PokeContext'
 
 interface PokemonDetailsMode {
   id: number
@@ -21,6 +22,7 @@ interface PokemonDetailsMode {
 export function PokeDetailPage() {
   const { pathname } = useLocation()
   const [pokemonDetails, setPokemonDetails] = useState({} as PokemonDetailsMode)
+  const { getPokeFavorites } = usePokemon()
 
   // retrieve data from the api, with the path in the endpoint when the page is load or the pathname variable changes
   useEffect(() => {
@@ -40,6 +42,12 @@ export function PokeDetailPage() {
     base_experience,
   } = pokemonDetails
 
+  const favoritePokemon = { id, name }
+
+  const handleFavoriteButtonClick = () => {
+    getPokeFavorites(favoritePokemon)
+  }
+
   return (
     <Container>
       <img
@@ -50,7 +58,7 @@ export function PokeDetailPage() {
       <div className="content">
         <div className="top-content">
           <h3 className="pokemon-name">{name}</h3>
-          <button className="fav-btn">
+          <button className="fav-btn" onClick={handleFavoriteButtonClick}>
             <img src={StarIcon} alt="favorite icon" className="fav-icon" />
           </button>
         </div>
