@@ -15,56 +15,64 @@ export const Container = styled.div`
     margin-right: 15px;
   }
 
-  .top-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 0.7rem;
-  }
-
   .content {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
-  }
 
-  .pokemon-name {
-    font-size: 1.6rem;
-    color: ${({ theme }) => theme.darkBlue};
-  }
+    .top-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.7rem;
 
-  .pokemon-bio {
-    line-height: 24px;
-    margin-bottom: 0.5rem;
-  }
+      .pokemon-name {
+        font-size: 1.6rem;
+        color: ${({ theme }) => theme.darkBlue};
+      }
 
-  .fav-btn {
-    background: transparent;
-    padding: 0.3rem 0.6rem;
-    border: none;
-    border-radius: 5px;
-    color: ${({ theme }) => theme.yellow};
-    font-size: 0.8rem;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    transform: scale(1);
-    transition: transform 0.3s;
+      .fav-btn {
+        background: transparent;
+        padding: 0.3rem 0.6rem;
+        border: none;
+        border-radius: 5px;
+        color: ${({ theme }) => theme.yellow};
+        font-size: 0.8rem;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        transform: scale(1);
+        transition: transform 0.3s;
 
-    &:hover {
-      transform: scale(1.1);
+        &:hover {
+          transform: scale(1.1);
+        }
+
+        .fav-icon {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+
+    .pokemon-bio {
+      line-height: 24px;
+      margin-bottom: 0.5rem;
     }
   }
 
-  .fav-icon {
-    width: 40px;
-    height: 40px;
+  .list {
+    display: flex;
+    gap: 7px;
   }
 
-  .pokemon-abilities {
-    display: flex;
-    gap: 10px;
+  .species-value,
+  .pokemon-abilities,
+  .list,
+  .pokemon-name {
+    text-transform: capitalize;
   }
 
   .title {
