@@ -12,7 +12,7 @@ export function Header() {
       </div>
 
       <nav className="menu">
-        <a href="" className="favorites-page-link">
+        <a href="/favorites" className="favorites-page-link">
           <img src={StarIcon} alt="fav pokémon" className="star-icon" />
           My fav Pokèmons!
         </a>
