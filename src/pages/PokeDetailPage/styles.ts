@@ -84,6 +84,10 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.darkBlue};
   }
 
+  .active {
+    opacity: 0.3;
+  }
+
   @media only screen and (max-width: 600px) {
     display: flex;
     flex-direction: column;

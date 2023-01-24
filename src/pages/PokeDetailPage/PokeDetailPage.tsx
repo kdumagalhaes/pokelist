@@ -44,6 +44,10 @@ export function PokeDetailPage() {
 
   const favoritePokemon = { id, name }
 
+  const handleFavoriteButtonClick = () => {
+    getPokeFavorites(favoritePokemon)
+  }
+
   return (
     <Container>
       <img
@@ -54,10 +58,7 @@ export function PokeDetailPage() {
       <div className="content">
         <div className="top-content">
           <h3 className="pokemon-name">{name}</h3>
-          <button
-            className="fav-btn"
-            onClick={() => getPokeFavorites(favoritePokemon)}
-          >
+          <button className="fav-btn" onClick={handleFavoriteButtonClick}>
             <img src={StarIcon} alt="favorite icon" className="fav-icon" />
           </button>
         </div>
