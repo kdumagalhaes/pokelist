@@ -3,7 +3,7 @@ import { Container, Wrapper } from './styles'
 import StarIcon from '../../assets/icons/star-pokemon.webp'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { getPokemonDetails } from '../../utils/pokemonDetails'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { usePokemon } from '../../context/PokeContext'
 
 interface PokemonDetailsMode {
@@ -19,19 +19,15 @@ interface PokemonDetailsMode {
   }
 }
 
-interface FavoritePokemonMode {
-  id: number
-  name: string
-}
-
 export function PokeDetailPage() {
   const { pathname } = useLocation()
-  const [pokemonDetails, setPokemonDetails] = useState({} as PokemonDetailsMode)
-  const [isClicked, setIsClicked] = useState(true)
-  const [favButtonActive, setFavButtonActive] = useState(false)
-  const navigate = useNavigate()
+  const { getPokeFavorites, handleRemoveFavoritePokemon, pokemonIsFavorite } =
+    usePokemon()
 
-  const { getPokeFavorites, favoritesList } = usePokemon()
+  const [pokemonDetails, setPokemonDetails] = useState({} as PokemonDetailsMode)
+  const [favButtonActive, setFavButtonActive] = useState(false)
+
+  const navigate = useNavigate()
 
   const {
     id,
@@ -44,24 +40,15 @@ export function PokeDetailPage() {
     base_experience,
   } = pokemonDetails
 
-  const favoritePokemon = { id, name }
-
-  // check if the pokemon is in the favorites list, if it is, set the favorites button to active
-  const pokemonIsFavorite = (pokemon: FavoritePokemonMode) => {
-    const isFavorite = favoritesList.some((item) =>
-      Object.keys(item).some(
-        (key) =>
-          item[key as keyof FavoritePokemonMode] ===
-          pokemon[key as keyof FavoritePokemonMode],
-      ),
-    )
-
-    setIsClicked(isFavorite)
-  }
+  const favoritePokemon = useMemo(() => ({ id, name }), [id, name])
 
   const handleFavoriteButtonClick = () => {
     getPokeFavorites(favoritePokemon)
-    setFavButtonActive(!favButtonActive)
+    setFavButtonActive(true)
+    if (pokemonIsFavorite(favoritePokemon)) {
+      handleRemoveFavoritePokemon(favoritePokemon)
+      setFavButtonActive(false)
+    }
   }
 
   // retrieve data from the api, with the path in the endpoint when the page is load or the pathname variable changes
@@ -70,8 +57,12 @@ export function PokeDetailPage() {
     getPokemonDetails(pathname).then((pokeData) => {
       setPokemonDetails(pokeData)
     })
-    pokemonIsFavorite(favoritePokemon)
-  }, [pathname, favoritePokemon])
+    if (pokemonIsFavorite(favoritePokemon)) {
+      setFavButtonActive(true)
+    } else {
+      setFavButtonActive(false)
+    }
+  }, [pathname, favoritePokemon, getPokeFavorites, pokemonIsFavorite])
 
   return (
     <Wrapper>
@@ -88,11 +79,7 @@ export function PokeDetailPage() {
               <img
                 src={StarIcon}
                 alt="favorite icon"
-                className={
-                  isClicked === true || favButtonActive === true
-                    ? 'fav-icon'
-                    : 'inactive fav-icon'
-                }
+                className={favButtonActive ? 'fav-icon' : 'inactive fav-icon'}
               />
             </button>
           </div>
