@@ -19,17 +19,18 @@ interface PokemonDetailsMode {
   }
 }
 
+interface FavoritePokemonMode {
+  id: number
+  name: string
+}
+
 export function PokeDetailPage() {
   const { pathname } = useLocation()
   const [pokemonDetails, setPokemonDetails] = useState({} as PokemonDetailsMode)
-  const { getPokeFavorites } = usePokemon()
+  const [isClicked, setIsClicked] = useState(true)
+  const [favButtonActive, setFavButtonActive] = useState(false)
 
-  // retrieve data from the api, with the path in the endpoint when the page is load or the pathname variable changes
-  useEffect(() => {
-    getPokemonDetails(pathname).then((pokeData) => {
-      setPokemonDetails(pokeData)
-    })
-  }, [pathname])
+  const { getPokeFavorites, favoritesList } = usePokemon()
 
   const {
     id,
@@ -44,9 +45,32 @@ export function PokeDetailPage() {
 
   const favoritePokemon = { id, name }
 
+  // check if the pokemon is in the favorites list, if it is, set the favorites button to active
+  const pokemonIsFavorite = (pokemon: FavoritePokemonMode) => {
+    const isFavorite = favoritesList.some((item) =>
+      Object.keys(item).some(
+        (key) =>
+          item[key as keyof FavoritePokemonMode] ===
+          pokemon[key as keyof FavoritePokemonMode],
+      ),
+    )
+
+    setIsClicked(isFavorite)
+  }
+
   const handleFavoriteButtonClick = () => {
     getPokeFavorites(favoritePokemon)
+    setFavButtonActive(!favButtonActive)
   }
+
+  // retrieve data from the api, with the path in the endpoint when the page is load or the pathname variable changes
+  // trigger the function pokemonIsFavorite in order to check if the pokemon is in the favorites list
+  useEffect(() => {
+    getPokemonDetails(pathname).then((pokeData) => {
+      setPokemonDetails(pokeData)
+    })
+    pokemonIsFavorite(favoritePokemon)
+  }, [pathname, favoritePokemon])
 
   return (
     <Container>
@@ -59,7 +83,15 @@ export function PokeDetailPage() {
         <div className="top-content">
           <h3 className="pokemon-name">{name}</h3>
           <button className="fav-btn" onClick={handleFavoriteButtonClick}>
-            <img src={StarIcon} alt="favorite icon" className="fav-icon" />
+            <img
+              src={StarIcon}
+              alt="favorite icon"
+              className={
+                isClicked === true || favButtonActive === true
+                  ? 'fav-icon'
+                  : 'inactive fav-icon'
+              }
+            />
           </button>
         </div>
         <div className="pokemon-base-experience">
