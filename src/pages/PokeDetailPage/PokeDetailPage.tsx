@@ -21,8 +21,12 @@ interface PokemonDetailsMode {
 
 export function PokeDetailPage() {
   const { pathname } = useLocation()
-  const { getPokeFavorites, handleRemoveFavoritePokemon, pokemonIsFavorite } =
-    usePokemon()
+  const {
+    getPokeFavorites,
+    handleRemoveFavoritePokemon,
+    pokemonIsFavorite,
+    getPokePicture,
+  } = usePokemon()
 
   const [pokemonDetails, setPokemonDetails] = useState({} as PokemonDetailsMode)
   const [favButtonActive, setFavButtonActive] = useState(false)
@@ -64,11 +68,7 @@ export function PokeDetailPage() {
   return (
     <Wrapper>
       <Container>
-        <img
-          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`}
-          alt={name}
-          className="pokemon-pitcure"
-        />
+        <img src={getPokePicture(id)} alt={name} className="pokemon-pitcure" />
         <div className="content">
           <div className="top-content">
             <h3 className="pokemon-name">{name}</h3>

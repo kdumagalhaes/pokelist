@@ -23,7 +23,7 @@ interface FavoritePokemon {
 }
 interface PokeContextModel {
   apiResponse: Pokemon[]
-  getPokePicture: (id: string) => string
+  getPokePicture: (id: string | number) => string
   nextPageUrl: string
   prevPageUrl: string
   goToNextPage: () => void
@@ -113,8 +113,9 @@ export const PokeProvider = ({ children }: PokeProviderProps) => {
   }
 
   // retrieve the pokemon picture based on its id, which is presented in the general pokemon list
-  const getPokePicture = useCallback((id: string) => {
-    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`
+  const getPokePicture = useCallback((id: string | number) => {
+    const pokeId = typeof id === 'number' ? id.toString() : id
+    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeId}.png`
   }, [])
 
   const value = {
