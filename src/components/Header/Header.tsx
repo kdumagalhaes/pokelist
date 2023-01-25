@@ -7,14 +7,14 @@ export function Header() {
     <Wrapper>
       <div className="container">
         <a href="/">
-          <img src={LogoImg} alt="" className="logo" />
+          <img src={LogoImg} alt="logo pokelist" className="logo" />
         </a>
       </div>
 
       <nav className="menu">
         <a href="/favorites" className="favorites-page-link">
           <img src={StarIcon} alt="fav pokémon" className="star-icon" />
-          My fav Pokèmons!
+          My fav Pokémons!
         </a>
       </nav>
     </Wrapper>

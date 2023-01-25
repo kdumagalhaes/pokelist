@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PokeDetailPage initial component should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bcXHqe fmLMQf"
+  >
+    <div
+      class="sc-gswNZR eDZkQz"
+    >
+      <img
+        class="pokemon-pitcure"
+        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/undefined.png"
+      />
+      <div
+        class="content"
+      >
+        <div
+          class="top-content"
+        >
+          <h3
+            class="pokemon-name"
+          />
+          <button
+            class="fav-btn"
+          >
+            <img
+              alt="favorite icon"
+              class="inactive fav-icon"
+              src="star-pokemon.webp"
+            />
+          </button>
+        </div>
+        <div
+          class="pokemon-base-experience"
+        >
+          <span
+            class="base-experience title"
+          >
+            Base experience: 
+          </span>
+          <span
+            class="base-experience-value"
+          />
+        </div>
+        <ul
+          class="list pokemon-type"
+        >
+          <span
+            class="type title"
+          >
+            Type: 
+          </span>
+        </ul>
+        <ul
+          class="list pokemon-abilities"
+        >
+          <span
+            class="abilities title"
+          >
+            Abilities:
+          </span>
+        </ul>
+        <div
+          class="pokemon-height"
+        >
+          <span
+            class="height title"
+          >
+            Height: 
+          </span>
+          <span
+            class="height-value"
+          />
+        </div>
+        <div
+          class="pokemon-weight"
+        >
+          <span
+            class="weight title"
+          >
+            Weight: 
+          </span>
+          <span
+            class="weight-value"
+          />
+        </div>
+        <div
+          class="pokemon-species"
+        >
+          <span
+            class="species title"
+          >
+            Species: 
+          </span>
+          <span
+            class="species-value"
+          />
+        </div>
+      </div>
+    </div>
+    <button
+      class="back-btn"
+    >
+      Go back!
+    </button>
+  </div>
+</DocumentFragment>
+`;

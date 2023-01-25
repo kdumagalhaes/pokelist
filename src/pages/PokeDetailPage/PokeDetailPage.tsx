@@ -2,7 +2,7 @@
 import { Container, Wrapper } from './styles'
 import StarIcon from '../../assets/icons/star-pokemon.webp'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { getPokemonDetails } from '../../utils/pokemonDetails'
+import { getPokemonDetails } from '../../utils/getPokemonDetails/getPokemonDetails'
 import { useEffect, useMemo, useState } from 'react'
 import { usePokemon } from '../../context/PokeContext'
 
@@ -58,10 +58,9 @@ export function PokeDetailPage() {
       setPokemonDetails(pokeData)
     })
     if (pokemonIsFavorite(favoritePokemon)) {
-      setFavButtonActive(true)
-    } else {
-      setFavButtonActive(false)
+      return setFavButtonActive(true)
     }
+    setFavButtonActive(false)
   }, [pathname, favoritePokemon, getPokeFavorites, pokemonIsFavorite, navigate])
 
   return (

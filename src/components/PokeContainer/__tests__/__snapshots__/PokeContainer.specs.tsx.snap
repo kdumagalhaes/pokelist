@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PokeContainer initial component should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-dkrFOg hMYgDk"
+  >
+    <div
+      class="sc-hLBbgP dDqwnA"
+    />
+    <div
+      class="sc-bcXHqe cvRPSc"
+    >
+      <button
+        class="pagination-btn"
+      >
+        <img
+          alt=""
+          class="pagination-icon"
+          src="circle-left.svg"
+        />
+        Previous
+      </button>
+      <button
+        class="pagination-btn"
+      >
+        <img
+          alt=""
+          class="pagination-icon"
+          src="circle-right.svg"
+        />
+        Next
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

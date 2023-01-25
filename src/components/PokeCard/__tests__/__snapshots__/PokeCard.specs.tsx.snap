@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PokeCard initial component should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bcXHqe bgIxFf"
+  >
+    <a
+      class="pokemon-link"
+      href="/pokemon/"
+    >
+      <img
+        alt=""
+        class="pokemon-image"
+        src=""
+      />
+      <h2
+        class="pokemon-name"
+      />
+    </a>
+  </div>
+</DocumentFragment>
+`;
