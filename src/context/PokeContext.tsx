@@ -30,6 +30,8 @@ interface PokeContextModel {
   goToPrevPage: () => void
   getPokeFavorites: (favoritePokemon: FavoritePokemon) => void
   favoritesList: FavoritePokemon[]
+  handleRemoveFavoritePokemon: (pokemonToRemove: FavoritePokemon) => void
+  pokemonIsFavorite: (favoritePokemon: FavoritePokemon) => boolean
 }
 
 export const PokeContext = createContext({} as PokeContextModel)
@@ -54,6 +56,7 @@ export const PokeProvider = ({ children }: PokeProviderProps) => {
       })
   }, [currentPage])
 
+  // retrieve the favorites list from localStorage and insert the data into a new list
   useEffect(() => {
     const favoritesValue = localStorage.getItem('pokefavs')
     if (typeof favoritesValue === 'string') {
@@ -81,6 +84,34 @@ export const PokeProvider = ({ children }: PokeProviderProps) => {
     }
   }
 
+  // check if the pokemon is in the favorites list, if it is, set the favorites button to active
+  const pokemonIsFavorite = (pokemon: FavoritePokemon) => {
+    const isFavorite = favoritesList.some((item) =>
+      Object.keys(item).some(
+        (key) =>
+          item[key as keyof FavoritePokemon] ===
+          pokemon[key as keyof FavoritePokemon],
+      ),
+    )
+    return isFavorite
+  }
+
+  // check if the pokemon is in the favorites list, if it is, create a new array without the duplicated pokémon
+  const handleRemoveFavoritePokemon = (
+    pokemonToRemove: FavoritePokemon,
+  ): void => {
+    const favoriteListWithoutRemovedOne = favoritesList.filter(
+      (pokemon: FavoritePokemon) => {
+        return pokemon.id !== pokemonToRemove.id
+      },
+    )
+
+    localStorage.setItem(
+      'pokefavs',
+      JSON.stringify(favoriteListWithoutRemovedOne),
+    )
+  }
+
   // retrieve the pokemon picture based on its id, which is presented in the general pokemon list
   const getPokePicture = useCallback((id: string) => {
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`
@@ -95,6 +126,8 @@ export const PokeProvider = ({ children }: PokeProviderProps) => {
     goToPrevPage,
     getPokeFavorites,
     favoritesList,
+    handleRemoveFavoritePokemon,
+    pokemonIsFavorite,
   }
 
   return <PokeContext.Provider value={value}>{children}</PokeContext.Provider>
