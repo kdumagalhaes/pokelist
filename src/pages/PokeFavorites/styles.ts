@@ -39,7 +39,7 @@ export const EmptyListMessage = styled.div`
     font-size: 1.2rem;
   }
 
-  .catch-pokemon-btn {
+  .catch-pokemon-link {
     background-color: ${({ theme }) => theme.blue};
     padding: 1rem 4rem;
     border-radius: 5px;
@@ -48,6 +48,7 @@ export const EmptyListMessage = styled.div`
     color: ${({ theme }) => theme.yellow};
     transition: background-color 0.3s;
     margin-top: 2rem;
+    text-decoration: none;
 
     &:hover {
       background-color: ${({ theme }) => theme.darkestBlue};

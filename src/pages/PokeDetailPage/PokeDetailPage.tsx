@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import { Container, Wrapper } from './styles'
 import StarIcon from '../../assets/icons/star-pokemon.webp'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { getPokemonDetails } from '../../utils/getPokemonDetails/getPokemonDetails'
 import { useEffect, useMemo, useState } from 'react'
 import { usePokemon } from '../../context/PokeContext'
@@ -26,8 +26,6 @@ export function PokeDetailPage() {
 
   const [pokemonDetails, setPokemonDetails] = useState({} as PokemonDetailsMode)
   const [favButtonActive, setFavButtonActive] = useState(false)
-
-  const navigate = useNavigate()
 
   const {
     id,
@@ -61,7 +59,7 @@ export function PokeDetailPage() {
       return setFavButtonActive(true)
     }
     setFavButtonActive(false)
-  }, [pathname, favoritePokemon, getPokeFavorites, pokemonIsFavorite, navigate])
+  }, [pathname, favoritePokemon, getPokeFavorites, pokemonIsFavorite])
 
   return (
     <Wrapper>
@@ -114,9 +112,9 @@ export function PokeDetailPage() {
           </div>
         </div>
       </Container>
-      <button onClick={() => navigate(-1)} className="back-btn">
-        Go back!
-      </button>
+      <a href="/" className="home-link">
+        Back to home!
+      </a>
     </Wrapper>
   )
 }
