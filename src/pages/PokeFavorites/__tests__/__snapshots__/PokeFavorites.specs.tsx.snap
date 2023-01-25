@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PokeFavorites initial component should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-gswNZR dmvrTK"
+  >
+    <div
+      class="sc-hLBbgP iOEvxQ"
+    >
+      <img
+        alt="sad pikachu"
+        class="sad-pikachu"
+        src="sad-pikachu.webp"
+      />
+      <p
+        class="message"
+      >
+        You don't have any favorite Pokémons yet!
+      </p>
+      <button
+        class="catch-pokemon-btn"
+      >
+        Catch 'em all!
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

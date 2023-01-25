@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header initial component should match snapshot 1`] = `
+<DocumentFragment>
+  <header
+    class="sc-bcXHqe dtDseH"
+  >
+    <div
+      class="container"
+    >
+      <a
+        href="/"
+      >
+        <img
+          alt="logo pokelist"
+          class="logo"
+          src="logo.svg"
+        />
+      </a>
+    </div>
+    <nav
+      class="menu"
+    >
+      <a
+        class="favorites-page-link"
+        href="/favorites"
+      >
+        <img
+          alt="fav pokémon"
+          class="star-icon"
+          src="star-pokemon.webp"
+        />
+        My fav Pokémons!
+      </a>
+    </nav>
+  </header>
+</DocumentFragment>
+`;

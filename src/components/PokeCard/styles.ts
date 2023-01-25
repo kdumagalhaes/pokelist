@@ -30,6 +30,7 @@ export const Container = styled.div`
 
     .pokemon-name {
       color: ${({ theme }) => theme.darkestBlue};
+      text-transform: capitalize;
     }
   }
 `
