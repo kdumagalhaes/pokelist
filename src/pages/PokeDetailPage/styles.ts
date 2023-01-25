@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: flex-start;
 
-  .back-btn {
+  .home-link {
     background-color: ${({ theme }) => theme.blue};
     padding: 1rem 2rem;
     border-radius: 5px;
@@ -16,6 +16,7 @@ export const Wrapper = styled.div`
     color: ${({ theme }) => theme.yellow};
     transition: background-color 0.3s;
     margin: 3rem;
+    text-decoration: none;
 
     &:hover {
       background-color: ${({ theme }) => theme.darkestBlue};

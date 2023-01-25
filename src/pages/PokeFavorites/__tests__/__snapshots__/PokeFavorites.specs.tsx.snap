@@ -6,7 +6,7 @@ exports[`PokeFavorites initial component should match snapshot 1`] = `
     class="sc-gswNZR dmvrTK"
   >
     <div
-      class="sc-hLBbgP iOEvxQ"
+      class="sc-hLBbgP ksEhbP"
     >
       <img
         alt="sad pikachu"
@@ -18,11 +18,12 @@ exports[`PokeFavorites initial component should match snapshot 1`] = `
       >
         You don't have any favorite Pokémons yet!
       </p>
-      <button
-        class="catch-pokemon-btn"
+      <a
+        class="catch-pokemon-link"
+        href="/"
       >
         Catch 'em all!
-      </button>
+      </a>
     </div>
   </div>
 </DocumentFragment>

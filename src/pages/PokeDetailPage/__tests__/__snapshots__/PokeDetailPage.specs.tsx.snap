@@ -3,7 +3,7 @@
 exports[`PokeDetailPage initial component should match snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bcXHqe fmLMQf"
+    class="sc-bcXHqe gGlelM"
   >
     <div
       class="sc-gswNZR eDZkQz"
@@ -99,11 +99,12 @@ exports[`PokeDetailPage initial component should match snapshot 1`] = `
         </div>
       </div>
     </div>
-    <button
-      class="back-btn"
+    <a
+      class="home-link"
+      href="/"
     >
-      Go back!
-    </button>
+      Back to home!
+    </a>
   </div>
 </DocumentFragment>
 `;
