@@ -62,7 +62,7 @@ export function PokeDetailPage() {
     } else {
       setFavButtonActive(false)
     }
-  }, [pathname, favoritePokemon, getPokeFavorites, pokemonIsFavorite])
+  }, [pathname, favoritePokemon, getPokeFavorites, pokemonIsFavorite, navigate])
 
   return (
     <Wrapper>
