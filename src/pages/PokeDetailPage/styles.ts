@@ -84,8 +84,9 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.darkBlue};
   }
 
-  .active {
-    opacity: 0.3;
+  .inactive {
+    filter: grayscale(100%);
+    cursor: pointer;
   }
 
   @media only screen and (max-width: 600px) {

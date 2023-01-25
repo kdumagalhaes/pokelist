@@ -72,7 +72,7 @@ export const PokeProvider = ({ children }: PokeProviderProps) => {
 
   // retrieve id and name of the pokemon that the user has clicked on the fav button and save the data in localStore
   const getPokeFavorites = (favoritePokemon: FavoritePokemon) => {
-    // if favoritesList doesn't have a pokemon with the same id, include it in the list
+    // if favoritesList doesn't have a pokemon with the same id as favoritePokemon, include it in the list
     if (!favoritesList.find((pokemon) => pokemon.id === favoritePokemon.id)) {
       localStorage.setItem(
         'pokefavs',
