@@ -15,7 +15,7 @@ export function Header() {
       <nav className="menu">
         <a href="/favorites" className="favorites-page-link">
           <img src={StarIcon} alt="fav pokémon" className="star-icon" />
-          My fav Pokémons!
+          My favorite Pokémons!
         </a>
       </nav>
     </Wrapper>

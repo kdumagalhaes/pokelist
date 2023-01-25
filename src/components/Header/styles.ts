@@ -35,6 +35,10 @@ export const Wrapper = styled.header`
   }
 
   .favorites-page-link {
+    background-color: ${({ theme }) => theme.darkestBlue};
+    padding: 0.5rem 1rem;
+    outline: 1px solid ${({ theme }) => theme.darkYellow};
+    border-radius: 3px;
     color: ${({ theme }) => theme.yellow};
     text-decoration: none;
     transition: color 0.3s;
