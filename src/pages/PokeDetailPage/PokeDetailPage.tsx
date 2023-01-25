@@ -53,12 +53,13 @@ export function PokeDetailPage() {
     }
   }
 
-  // retrieve data from the api, with the path in the endpoint when the page is load or the pathname variable changes
-  // trigger the function pokemonIsFavorite in order to check if the pokemon is in the favorites list
+  // retrieve data from the api based on the page path
   useEffect(() => {
     getPokemonDetails(pathname).then((pokeData) => {
       setPokemonDetails(pokeData)
     })
+
+    // trigger the function pokemonIsFavorite in order to check if the pokemon is in the favorites list
     if (pokemonIsFavorite(favoritePokemon)) {
       return setFavButtonActive(true)
     }
