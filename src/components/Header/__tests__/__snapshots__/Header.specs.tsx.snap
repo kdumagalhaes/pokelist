@@ -3,7 +3,7 @@
 exports[`Header initial component should match snapshot 1`] = `
 <DocumentFragment>
   <header
-    class="sc-bcXHqe dtDseH"
+    class="sc-bcXHqe bXuyeb"
   >
     <div
       class="container"
@@ -11,6 +11,9 @@ exports[`Header initial component should match snapshot 1`] = `
       <a
         href="/"
       >
+        <h1>
+          logo poketlist
+        </h1>
         <img
           alt="logo pokelist"
           class="logo"
@@ -30,7 +33,7 @@ exports[`Header initial component should match snapshot 1`] = `
           class="star-icon"
           src="star-pokemon.webp"
         />
-        My fav Pokémons!
+        My favorite Pokémons!
       </a>
     </nav>
   </header>

@@ -21,14 +21,14 @@ describe('Header', () => {
 
   it('should render favorite text link', () => {
     render(<Header />)
-    const favoriteText = /my fav pokémon/i
+    const favoriteText = /my favorite pokémon/i
     expect(screen.getByText(favoriteText)).toBeInTheDocument()
   })
 
   it('should navigate to favorites page', () => {
     render(<Header />)
     const path = '/favorites'
-    const linkText = /my fav pokémons/i
+    const linkText = /my favorite pokémons/i
     expect(screen.getByText(linkText)).toHaveAttribute('href', path)
   })
 })

@@ -15,7 +15,7 @@ exports[`PokeContainer initial component should match snapshot 1`] = `
         class="pagination-btn"
       >
         <img
-          alt=""
+          alt="left arrow"
           class="pagination-icon"
           src="circle-left.svg"
         />
@@ -25,7 +25,7 @@ exports[`PokeContainer initial component should match snapshot 1`] = `
         class="pagination-btn"
       >
         <img
-          alt=""
+          alt="right arrow"
           class="pagination-icon"
           src="circle-right.svg"
         />
