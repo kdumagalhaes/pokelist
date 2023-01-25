@@ -34,7 +34,9 @@ export const EmptyListMessage = styled.div`
   }
 
   .message {
-    color: ${({ theme }) => theme.darkBlue};
+    max-width: 15rem;
+    text-align: center;
+    color: ${({ theme }) => theme.red};
     font-weight: 700;
     font-size: 1.2rem;
   }
