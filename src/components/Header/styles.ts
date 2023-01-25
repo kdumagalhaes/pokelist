@@ -13,6 +13,12 @@ export const Wrapper = styled.header`
     display: flex;
     align-items: center;
     height: 100%;
+
+    h1 {
+      font-size: 1px;
+      text-decoration: none;
+      visibility: hidden;
+    }
   }
 
   .logo {

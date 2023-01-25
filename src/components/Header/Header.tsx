@@ -7,6 +7,7 @@ export function Header() {
     <Wrapper>
       <div className="container">
         <a href="/">
+          <h1>logo poketlist</h1>
           <img src={LogoImg} alt="logo pokelist" className="logo" />
         </a>
       </div>
