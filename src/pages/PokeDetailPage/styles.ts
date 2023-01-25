@@ -1,9 +1,33 @@
 import styled from 'styled-components'
 
+export const Wrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  .back-btn {
+    background-color: ${({ theme }) => theme.blue};
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    border: none;
+    font-weight: 700;
+    color: ${({ theme }) => theme.yellow};
+    transition: background-color 0.3s;
+    margin: 3rem;
+
+    &:hover {
+      background-color: ${({ theme }) => theme.darkestBlue};
+    }
+  }
+`
+
 export const Container = styled.div`
+  width: 100%;
   max-width: 54rem;
   padding: 2rem;
-  margin: 3rem auto 15rem auto;
+  margin: 3rem auto 0 auto;
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   border-radius: 5px;
   display: flex;
