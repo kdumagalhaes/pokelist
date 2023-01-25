@@ -73,7 +73,7 @@ export const PokeProvider = ({ children }: PokeProviderProps) => {
     setCurrentPage(prevPageUrl)
   }
 
-  // retrieve id and name of the pokemon that the user has clicked on the fav button and save the data in localStore
+  // retrieve id and name of the pokemon that the user has clicked on the fav button and save the data in localStorage
   const getPokeFavorites = (favoritePokemon: FavoritePokemon) => {
     // if favoritesList doesn't have a pokemon with the same id as favoritePokemon, include it in the list
     if (!favoritesList.find((pokemon) => pokemon.id === favoritePokemon.id)) {
@@ -84,7 +84,7 @@ export const PokeProvider = ({ children }: PokeProviderProps) => {
     }
   }
 
-  // check if the pokemon is in the favorites list, if it is, set the favorites button to active
+  // check if the pokemon is in the favorites list
   const pokemonIsFavorite = (pokemon: FavoritePokemon) => {
     const isFavorite = favoritesList.some((item) =>
       Object.keys(item).some(
