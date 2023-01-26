@@ -17,19 +17,19 @@
 </p>
 
 ## :rocket: Description
-Pokelist is a small application made in React + TypeScript that lists Pokémon based on the pokeapi.co API, and let the user favorite Pokémons.
+Pokelist is a small application made in React + TypeScript that lists Pokémons based on the pokeapi.co API, and let the user favorite them.
 ## :rocket: User stories
 - User can see a list of Pokémons on the main page;
-- User can navigate to other pages;
+- User can navigate to other pages using navigation buttons;
 - User can access the Pokémon details page clicking on the Pokémon on the main page;
 - User can insert a Pokémon in a favorites list, in localStorage, clicking on the star button;
-- User can leave the tab, come back and see the favorites list with the updated state;
+- User can leave the browser's tab, come back and see the favorites list with the updated state;
 - User can remove a Pokémon from the favorites list clicking on the star when it's active;
 
 
 ## :rocket: How to install:
 
-- git clone: https://github.com/kdumagalhaes/recrutamento-back-end 
+- git clone: https://github.com/kdumagalhaes/pokelist.git
 
 ```
 npm install
@@ -42,21 +42,23 @@ npm start
 ```
 npm run test
 ```
-### :rocket: Requirements:
+## :rocket: Requirements:
 - Node's latest version installed on your machine.
+- https://nodejs.org/en/download/
 
 ## :rocket: Technologies
 
 - [ReactJS](https://reactjs.org/)
-- [Create React App](hhttps://create-react-app.dev/)
+- [Create React App](https://create-react-app.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [LocalStorage API](https://developer.mozilla.org/pt-BR/docs/Web/API/Window/localStorage)
 - [Styled Components](https://styled-components.com/)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 - [React Router](https://reactrouter.com/en/main)
+- [Pokeapi.co](https://pokeapi.co/)
 - [Context API](https://reactjs.org/docs/context.html)
 
-## :rocket: Improvement oportunities
+## :rocket: Improvement opportunities
 - [ ] Update title page based on screen content (React Helmet?);
 - [ ] Loading effect on images;
 - [ ] Apply reducers;
