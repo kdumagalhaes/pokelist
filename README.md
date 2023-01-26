@@ -1,46 +1,67 @@
-# Getting Started with Create React App
+<h1 align="center">
+    Pokelist!
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img alt="screencapture" src="screen-capture.webp" />
 
-## Available Scripts
+<p align="center">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/kdumagalhaes/pokelist">
+  <br />
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/kdumagalhaes/pokelist">
+  <br />
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/kdumagalhaes/pokelist">
+</p>
 
-In the project directory, you can run:
+<p align="center">
+    <a href="https://pokelist-one.vercel.app/" target="_blank">Click here to see the live demo!</a>&nbsp;&nbsp;&nbsp;
+</p>
 
-### `npm start`
+## :rocket: Description
+Pokelist is a small application made in React + TypeScript that lists Pokémon based on the pokeapi.co API, and let the user favorite Pokémons.
+## :rocket: User stories
+- User can see a list of Pokémons on the main page;
+- User can navigate to other pages;
+- User can access the Pokémon details page clicking on the Pokémon on the main page;
+- User can insert a Pokémon in a favorites list, in localStorage, clicking on the star button;
+- User can leave the tab, come back and see the favorites list with the updated state;
+- User can remove a Pokémon from the favorites list clicking on the star when it's active;
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## :rocket: How to install:
 
-### `npm test`
+- git clone: https://github.com/kdumagalhaes/recrutamento-back-end 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+npm install
+```
+```
+npm start
+```
 
-### `npm run build`
+## :rocket: How to test:
+```
+npm run test
+```
+### :rocket: Requirements:
+- Node's latest version installed on your machine.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## :rocket: Technologies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [ReactJS](https://reactjs.org/)
+- [Create React App](hhttps://create-react-app.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [LocalStorage API](https://developer.mozilla.org/pt-BR/docs/Web/API/Window/localStorage)
+- [Styled Components](https://styled-components.com/)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- [React Router](https://reactrouter.com/en/main)
+- [Context API](https://reactjs.org/docs/context.html)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## :rocket: Improvement oportunities
+- [ ] Update title page based on screen content (React Helmet?);
+- [ ] Loading effect on images;
+- [ ] Apply reducers;
+- [ ] Improve tests with mocks and different approaches; 
+- [ ] Improve navigation based on browser history;
+- [ ] Improve performance with caching techniques; 
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Made with ♥ by Carlos :wave:
