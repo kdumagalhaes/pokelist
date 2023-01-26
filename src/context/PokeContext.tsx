@@ -7,12 +7,6 @@ import {
   useCallback,
 } from 'react'
 
-interface Pokemon {
-  id: number
-  name: string
-  url: string
-}
-
 interface PokeProviderProps {
   children: ReactNode
 }
@@ -21,9 +15,13 @@ interface FavoritePokemon {
   id: number
   name: string
 }
+
+interface Pokemon extends FavoritePokemon {
+  url: string
+}
 interface PokeContextModel {
   apiResponse: Pokemon[]
-  getPokePicture: (id: string) => string
+  getPokePicture: (id: string | number) => string
   nextPageUrl: string
   prevPageUrl: string
   goToNextPage: () => void
@@ -73,7 +71,7 @@ export const PokeProvider = ({ children }: PokeProviderProps) => {
     setCurrentPage(prevPageUrl)
   }
 
-  // retrieve id and name of the pokemon that the user has clicked on the fav button and save the data in localStore
+  // retrieve id and name of the pokemon that the user has clicked on the fav button and save the data in localStorage
   const getPokeFavorites = (favoritePokemon: FavoritePokemon) => {
     // if favoritesList doesn't have a pokemon with the same id as favoritePokemon, include it in the list
     if (!favoritesList.find((pokemon) => pokemon.id === favoritePokemon.id)) {
@@ -84,7 +82,7 @@ export const PokeProvider = ({ children }: PokeProviderProps) => {
     }
   }
 
-  // check if the pokemon is in the favorites list, if it is, set the favorites button to active
+  // check if the pokemon is in the favorites list
   const pokemonIsFavorite = (pokemon: FavoritePokemon) => {
     const isFavorite = favoritesList.some((item) =>
       Object.keys(item).some(
@@ -113,8 +111,9 @@ export const PokeProvider = ({ children }: PokeProviderProps) => {
   }
 
   // retrieve the pokemon picture based on its id, which is presented in the general pokemon list
-  const getPokePicture = useCallback((id: string) => {
-    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`
+  const getPokePicture = useCallback((id: string | number) => {
+    const pokeId = typeof id === 'number' ? id.toString() : id
+    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeId}.png`
   }, [])
 
   const value = {

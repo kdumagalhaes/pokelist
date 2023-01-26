@@ -35,9 +35,7 @@ describe('PokeFavorites', () => {
         </PokeProvider>
       </BrowserRouter>,
     )
-    const message = screen.getByText(
-      `You don't have any favorite Pokémons yet!`,
-    )
+    const message = screen.getByText(`You don't have any favorite Pokémon yet!`)
     expect(message).toBeInTheDocument()
   })
 

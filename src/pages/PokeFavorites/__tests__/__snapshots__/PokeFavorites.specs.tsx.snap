@@ -6,7 +6,7 @@ exports[`PokeFavorites initial component should match snapshot 1`] = `
     class="sc-gswNZR dmvrTK"
   >
     <div
-      class="sc-hLBbgP ksEhbP"
+      class="sc-hLBbgP bQaUqA"
     >
       <img
         alt="sad pikachu"
@@ -16,7 +16,7 @@ exports[`PokeFavorites initial component should match snapshot 1`] = `
       <p
         class="message"
       >
-        You don't have any favorite Pokémons yet!
+        You don't have any favorite Pokémon yet!
       </p>
       <a
         class="catch-pokemon-link"

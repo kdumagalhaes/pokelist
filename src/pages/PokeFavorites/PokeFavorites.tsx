@@ -12,7 +12,7 @@ export function PokeFavorites() {
       {!favoritesList.length ? (
         <EmptyListMessage>
           <img src={SadPikachu} alt="sad pikachu" className="sad-pikachu" />
-          <p className="message">You don't have any favorite Pokémons yet!</p>
+          <p className="message">You don't have any favorite Pokémon yet!</p>
           <a href="/" className="catch-pokemon-link">
             Catch 'em all!
           </a>
@@ -24,7 +24,7 @@ export function PokeFavorites() {
               <PokeCard
                 key={pokemon.name}
                 name={pokemon.name}
-                image={getPokePicture(pokemon.id.toString())}
+                image={getPokePicture(pokemon.id)}
               />
             )
           })}
