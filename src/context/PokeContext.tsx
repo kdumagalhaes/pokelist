@@ -7,12 +7,6 @@ import {
   useCallback,
 } from 'react'
 
-interface Pokemon {
-  id: number
-  name: string
-  url: string
-}
-
 interface PokeProviderProps {
   children: ReactNode
 }
@@ -20,6 +14,10 @@ interface PokeProviderProps {
 interface FavoritePokemon {
   id: number
   name: string
+}
+
+interface Pokemon extends FavoritePokemon {
+  url: string
 }
 interface PokeContextModel {
   apiResponse: Pokemon[]
