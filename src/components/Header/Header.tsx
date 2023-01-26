@@ -5,9 +5,7 @@ import { useLocation } from 'react-router-dom'
 
 export function Header() {
   const { pathname } = useLocation()
-  console.log(pathname)
 
-  pathname === '/favorites' ? console.log('favorites') : console.log('outro')
   return (
     <Wrapper>
       <div className="container">
