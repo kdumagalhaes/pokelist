@@ -10,10 +10,19 @@ export const Container = styled.div`
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 0 1rem;
   gap: 2rem;
   cursor: pointer;
   margin-bottom: 6rem;
+
+  @media only screen and (max-width: 1100px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media only screen and (max-width: 830px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   @media only screen and (max-width: 600px) {
     display: flex;
